@@ -1,16 +1,19 @@
 /*** TOKENS ***/
 
 :root {
-  --bg: #f6f5f0;
-  --ink: #1a1d1a;
-  --accent: #2d7a46;
-  --muted: #767c74;
-  --line: #dad6cb;
-  --chip-bg: #efede5;
+  --bg: #f5f6f7;
+  --bg-dark: #2a312f;
+  --ink: #1c2220;
+  --ink-light: #9ca5a1;
+  --accent: #2f7d68;
+  --muted: #69736f;
+  --line: #dde2df;
+  --chip-bg: #f0f3f2;
+  --overlay: rgba(28, 34, 32, 0.85);
 
   --font-display: "Space Grotesk", "Inter", sans-serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: "Space Mono", "SF Mono", Consolas, monospace;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "Space Mono", monospace;
 }
 
 /*** RESET ***/
@@ -129,6 +132,7 @@ main {
 }
 
 .bio {
+  color: var(--muted);
   margin-bottom: 3.5rem;
 }
 
