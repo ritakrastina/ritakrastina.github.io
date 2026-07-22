@@ -9,7 +9,7 @@
   --muted: #69736f;
   --line: #dde2df;
   --chip-bg: #f0f3f2;
-  --overlay: rgba(28, 34, 32, 0.85);
+  --overlay: rgba(28, 34, 32, 0.8);
 
   --font-display: "Space Grotesk", "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -39,6 +39,10 @@ body {
 
 ul {
   list-style: none;
+}
+
+img {
+  user-select: none;
 }
 
 a {
@@ -91,6 +95,10 @@ main:focus-visible {
 body {
   display: flex;
   min-height: 100dvh;
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
 }
 
 aside {
@@ -241,7 +249,188 @@ footer .contact-links {
   border-radius: 1rem;
 }
 
-/* Timelines */
+/* Project */
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding-bottom: 4rem;
+}
+.project:last-child {
+  padding-bottom: 0;
+}
+
+.project-media {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-hero {
+  display: block;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-hero-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+.project-hero-img:hover {
+  transform: scale(1.01);
+}
+
+.project-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-thumbnail {
+  display: flex;
+  width: 4.5rem;
+  height: 3rem;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.6;
+  background: transparent;
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease;
+}
+.project-thumbnail:hover {
+  opacity: 1;
+}
+
+.project-thumbnail.is-active {
+  opacity: 1;
+  border: 1px solid var(--accent);
+}
+
+.project-thumbnail img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.project-description {
+  margin-bottom: 2rem;
+}
+
+/* Project gallery */
+
+.gallery {
+  width: 100%;
+  height: 100dvh;
+  max-width: 100%;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.gallery::backdrop {
+  background: var(--overlay);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.gallery-scroller {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.gallery-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-slide {
+  flex: 0 0 100%;
+  width: 100dvw;
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-slide img {
+  max-width: 80dvw;
+  max-height: 80dvh;
+  object-fit: contain;
+}
+
+.gallery-btn {
+  position: fixed;
+  z-index: 100;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--ink-light);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.gallery-btn:hover {
+  background-color: var(--bg-dark);
+}
+.gallery-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.gallery-close {
+  top: 2rem;
+  right: 2rem;
+}
+
+.gallery-prev {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 2rem;
+}
+
+.gallery-next {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2rem;
+}
+
+/* Timeline */
 
 .timeline-item {
   padding-bottom: 2rem;
@@ -298,6 +487,11 @@ footer .contact-links {
   main {
     padding: 1.5rem;
   }
+
+  .project {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -349,6 +543,16 @@ footer .contact-links {
 
   .bio {
     margin-bottom: 2rem;
+  }
+
+  .project {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-hero {
+    pointer-events: none;
+    cursor: default;
   }
 }
 

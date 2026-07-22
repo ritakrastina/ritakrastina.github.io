@@ -1,13 +1,13 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
     /* Light Mode / Default color */
-    .background { fill: #F6F5F0; }
-    .path { fill: #33513B; }
+    .background { fill: #2a312f; }
+    .path { fill: #f5f6f7; }
 
     /* Dark Mode */
     @media (prefers-color-scheme: dark) {
-      .background { fill: #33513B; }
-      .path { fill: #F6F5F0; }
+      .background { fill: #f0f3f2; }
+      .path { fill: #1c2220; }
     }
   </style>
 <rect class="background" width="64" height="64"/>
