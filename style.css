@@ -9,7 +9,7 @@
   --muted: #69736f;
   --line: #dde2df;
   --chip-bg: #f0f3f2;
-  --overlay: rgba(28, 34, 32, 0.8);
+  --overlay: rgba(28, 34, 32, 0.9);
 
   --font-display: "Space Grotesk", "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -116,7 +116,7 @@ aside {
 
 main {
   flex: 1;
-  max-width: 60rem;
+  max-width: 64rem;
   padding: 2.5rem;
 }
 
@@ -253,7 +253,7 @@ footer .contact-links {
 
 .project {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.8fr 1fr;
   gap: 2.5rem;
   padding-bottom: 4rem;
 }
@@ -339,6 +339,18 @@ footer .contact-links {
 
 .project-description {
   margin-bottom: 2rem;
+}
+
+.project-link {
+  align-self: flex-end;
+}
+
+.project-disclaimer {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 0.25rem;
+  align-self: flex-end;
 }
 
 /* Project gallery */
