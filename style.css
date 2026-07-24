@@ -285,7 +285,7 @@ footer .contact-links {
   transition: transform 0.2s ease;
 }
 .project-hero-img:hover {
-  transform: scale(1.01);
+  transform: scale(1.02);
 }
 
 .project-thumbnails {
@@ -295,9 +295,8 @@ footer .contact-links {
 
 .project-thumbnail {
   display: flex;
-  width: 4.5rem;
+  max-width: 4.5rem;
   height: 3rem;
-  flex-shrink: 0;
   border: 1px solid var(--line);
   border-radius: 0.25rem;
   overflow: hidden;
