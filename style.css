@@ -94,6 +94,7 @@ main:focus-visible {
 
 body {
   display: flex;
+  flex-direction: column;
   min-height: 100dvh;
 }
 
@@ -102,22 +103,23 @@ body:has(dialog[open]) {
 }
 
 aside {
-  width: 22rem;
-  height: 100dvh;
+  width: 100%;
+  height: auto;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 1.5rem;
   flex-shrink: 0;
-  border-right: 1px solid var(--line);
   position: sticky;
   top: 0;
+  z-index: 1;
   overflow-y: auto;
-  padding: 2.5rem;
   display: flex;
   flex-direction: column;
 }
 
 main {
   flex: 1;
-  max-width: 64rem;
-  padding: 2.5rem;
+  padding: 1.5rem;
 }
 
 /*** SIDEBAR CONTENT ***/
@@ -133,23 +135,23 @@ main {
 
 .name {
   font-family: var(--font-display);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .bio {
   color: var(--muted);
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
 }
 
 .navigation {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  flex-direction: row;
+  gap: 0.25rem;
   align-items: flex-start;
-  margin-bottom: 3.5rem;
+  justify-content: space-evenly;
   font-family: var(--font-mono);
   font-size: 0.875rem;
 }
@@ -162,6 +164,7 @@ main {
 }
 
 .navigation a span {
+  display: none;
   color: var(--muted);
   transition: color 0.2s ease;
 }
@@ -173,7 +176,7 @@ main {
 
 .navigation > span {
   color: var(--muted);
-  display: none;
+  display: flex;
 }
 
 .contact-links {
@@ -184,12 +187,12 @@ main {
 }
 
 aside .contact-links {
-  display: flex;
+  display: none;
   padding-top: 1.5rem;
 }
 
 footer .contact-links {
-  display: none;
+  display: flex;
   margin-top: 1rem;
   padding-top: 1rem;
 }
@@ -200,7 +203,7 @@ footer .contact-links {
   padding-bottom: 4rem;
   margin-bottom: 4rem;
   border-bottom: 1px solid var(--line);
-  scroll-margin-top: 2.5rem;
+  scroll-margin-top: 17rem;
 }
 .section:last-of-type {
   border-bottom: none;
@@ -253,8 +256,8 @@ footer .contact-links {
 
 .project {
   display: grid;
-  grid-template-columns: 0.8fr 1fr;
-  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   padding-bottom: 4rem;
 }
 .project:last-child {
@@ -273,7 +276,8 @@ footer .contact-links {
   border: 1px solid var(--line);
   border-radius: 0.25rem;
   overflow: hidden;
-  cursor: pointer;
+  pointer-events: none;
+  cursor: default;
 }
 
 .project-hero-img {
@@ -489,92 +493,82 @@ footer .contact-links {
 
 /*** RESPONSIVE ***/
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  aside {
-    width: 18rem;
-    padding: 1.5rem;
-  }
-
-  main {
-    padding: 1.5rem;
-  }
-
-  .project {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
-
-  aside {
-    width: 100%;
-    height: auto;
-    background: var(--bg);
-    z-index: 1;
-    border-right: none;
-    border-bottom: 1px solid var(--line);
-    padding: 1.5rem;
-  }
-
-  main {
-    padding: 1.5rem;
-    max-width: none;
-  }
-
-  aside .contact-links {
-    display: none;
-  }
-
-  footer .contact-links {
-    display: flex;
-  }
-
-  .navigation {
-    flex-direction: row;
-    gap: 0.25rem;
-    justify-content: space-evenly;
-    margin-bottom: 0;
-    color: var(--muted);
-  }
-  .navigation a span {
-    display: none;
-  }
-  .navigation > span {
-    display: flex;
-  }
-
-  .name {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .bio {
-    margin-bottom: 2rem;
-  }
-
-  .project {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .project-hero {
-    pointer-events: none;
-    cursor: default;
-  }
-}
-
-@media (min-width: 517px) and (max-width: 1024px) {
+@media (min-width: 517px) {
   .section {
     scroll-margin-top: 16rem;
   }
 }
 
-@media (max-width: 516px) {
+@media (min-width: 769px) {
+  body {
+    flex-direction: row;
+  }
+
+  aside {
+    width: 18rem;
+    height: 100dvh;
+    border-bottom: none;
+    border-right: 1px solid var(--line);
+  }
+
+  .name {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .bio {
+    margin-bottom: 3.5rem;
+  }
+
+  .navigation {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .navigation a span {
+    display: flex;
+  }
+
+  .navigation > span {
+    display: none;
+  }
+
+  aside .contact-links {
+    display: flex;
+  }
+
+  footer .contact-links {
+    display: none;
+  }
+
   .section {
-    scroll-margin-top: 17rem;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .project-hero {
+    pointer-events: all;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1025px) {
+  aside {
+    width: 22rem;
+    padding: 2.5rem;
+  }
+
+  main {
+    padding: 2.5rem;
+  }
+
+  .section {
+    scroll-margin-top: 2.5rem;
+  }
+
+  .project {
+    grid-template-columns: 0.8fr 1fr;
+    gap: 2.5rem;
   }
 }
