@@ -561,6 +561,7 @@ footer .contact-links {
 
   main {
     padding: 2.5rem;
+    max-width: 64rem;
   }
 
   .section {
