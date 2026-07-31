@@ -112,20 +112,9 @@ aside {
   position: sticky;
   top: 0;
   z-index: 1;
-  overflow: visible;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-}
-
-aside::before {
-  content: "";
-  position: absolute;
-  top: -100vh;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  background: var(--bg);
-  z-index: -1;
 }
 
 main {
@@ -520,11 +509,6 @@ footer .contact-links {
     height: 100dvh;
     border-bottom: none;
     border-right: 1px solid var(--line);
-    overflow-y: auto;
-  }
-
-  aside::before {
-    display: none;
   }
 
   .name {
