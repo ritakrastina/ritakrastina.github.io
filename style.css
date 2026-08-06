@@ -506,7 +506,7 @@ footer .contact-links {
   }
 }
 
-@media (min-width: 769px) or (orientation: landscape) {
+@media (min-width: 769px), (orientation: landscape) {
   body {
     flex-direction: row;
   }
